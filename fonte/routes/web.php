@@ -16,5 +16,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([
+    'prefix' => 'cliente',
+], function(){
+    Route::get('/', 'ClienteController@index')->name('cliente');
+    Route::get('/{id}', 'ClienteController@get')->name('get_cliente');
+    Route::post('/cadastrar', 'ClienteController@cadastrar')->name('cliente_cadastrar');
+});
