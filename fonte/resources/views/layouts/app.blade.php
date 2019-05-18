@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'GH Flusão') }}</title>
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -44,12 +44,59 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
+                        <!--ADMINISTRAÇAO-->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Administração <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Cadastro de Usuário</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Cadastro de Perfil</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Auditoria</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Backup</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Help</a>
+                                </div>
+                            </li>
+                        <!--Cadastro-->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Cadastro <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Área</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Processo</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Area/Etapa</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">EFS</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Etapa/EFS</a>
+                                </div>
+                            </li>
+                        <!--PROJETO-->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Projeto <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"  href="{{ route('cliente') }}">Cliente</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Projeto</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Projeto/Fase</a>
+                                </div>
+                            </li>
+                        <!--Relatório-->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Relatório <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Área/Etapa/Projetos</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Etapa/EFS</a>
+                                    <a class="dropdown-item"  href="{{ route('register') }}">Área/Etapa/Processo/EFS</a>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -89,6 +136,11 @@
                     @if (session('success'))
                         <div class="alert alert-success" role="alert">
                             {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('erro'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('erro') }}
                         </div>
                     @endif
                 </div>

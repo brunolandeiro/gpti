@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group([
     'prefix' => 'cliente',
 ], function(){
-    Route::get('/', 'ClienteController@index')->name('cliente');
-    Route::get('/{id}', 'ClienteController@get')->name('get_cliente');
+    Route::get('/{id?}/{showForm?}', 'ClienteController@index')->name('cliente');
     Route::post('/cadastrar', 'ClienteController@cadastrar')->name('cliente_cadastrar');
+    Route::get('/delete/cliente/{id}', 'ClienteController@delete')->name('delete');
 });
