@@ -66,8 +66,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Área</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Processo</a>
+                                    <a class="dropdown-item"  href="{{ route('area') }}">Área</a>
+                                    <a class="dropdown-item"  href="{{ route('processo') }}">Processo</a>
                                     <a class="dropdown-item"  href="{{ route('register') }}">Area/Etapa</a>
                                     <a class="dropdown-item"  href="{{ route('register') }}">EFS</a>
                                     <a class="dropdown-item"  href="{{ route('register') }}">Etapa/EFS</a>

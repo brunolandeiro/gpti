@@ -25,3 +25,19 @@ Route::group([
     Route::post('/cadastrar', 'ClienteController@cadastrar')->name('cliente_cadastrar');
     Route::get('/delete/cliente/{id}', 'ClienteController@delete')->name('delete');
 });
+
+Route::group([
+    'prefix' => 'area',
+], function(){
+    Route::get('/{id?}/{showForm?}', 'AreaController@index')->name('area');
+    Route::post('/cadastrar', 'AreaController@cadastrar')->name('area_cadastrar');
+    Route::get('/delete/area/{id}', 'AreaController@delete')->name('delete');
+});
+
+Route::group([
+    'prefix' => 'processo',
+], function(){
+    Route::get('/{id?}/{showForm?}', 'ProcessoController@index')->name('processo');
+    Route::post('/cadastrar', 'ProcessoController@cadastrar')->name('processo_cadastrar');
+    Route::get('/delete/processo/{id}', 'ProcessoController@delete')->name('delete');
+});

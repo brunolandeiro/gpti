@@ -2,13 +2,18 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-class Cliente extends Model
+class Processo extends Model
 {
-    protected $table = 'cliente';
-    protected $primaryKey = 'cpf';
+    protected $table = 'processo';
+    protected $primaryKey = 'cod_proc';
     public $incrementing = false;
     public $timestamps = false;
     protected $fillable = [
         'nome','descricao'
     ];
+
+    public function etapas()
+    {
+        return $this->hasMany('App\Etapa', 'cod_proc', 'cod_proc');
+    }
 }

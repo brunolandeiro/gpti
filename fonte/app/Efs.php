@@ -2,10 +2,10 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-class Cliente extends Model
+class Efs extends Model
 {
-    protected $table = 'cliente';
-    protected $primaryKey = 'cpf';
+    protected $table = 'efs';
+    protected $primaryKey = 'cod_efs';
     public $incrementing = false;
     public $timestamps = false;
     protected $fillable = [
