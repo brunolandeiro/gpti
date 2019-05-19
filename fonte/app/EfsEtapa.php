@@ -5,7 +5,7 @@ use Illuminate\Notifications\Notifiable;
 class EfsEtapa extends Model
 {
     protected $table = 'efs_etapa';
-    protected $primaryKey = ['efs_cod_efs', 'etapa_cod_etapa'];
+    protected $primaryKey = ['cod_efs', 'cod_etapa'];
     public $incrementing = false;
     public $timestamps = false;
     protected $fillable = [

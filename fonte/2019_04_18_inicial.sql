@@ -57,10 +57,10 @@ create table efs
 );
 
 create table efs_etapa
-(	efs_cod_efs varchar(5),
-	etapa_cod_etapa varchar(4),
+(	cod_efs varchar(5),
+	cod_etapa varchar(4),
 	tipo varchar(10),
-	primary key(efs_cod_efs, etapa_cod_etapa),
-	foreign key(efs_cod_efs) references efs(cod_efs),
-	foreign key(etapa_cod_etapa) references etapa(cod_etapa)
+	primary key(cod_efs, cod_etapa),
+	foreign key(cod_efs) references efs(cod_efs),
+	foreign key(cod_etapa) references etapa(cod_etapa)
 );

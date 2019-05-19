@@ -43,7 +43,7 @@
                         </span>
                     @endif
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="etapas">Etapa:</label>
                     <select class="form-control" multiple="multiple" name="etapas[]" id="etapas">
                         @foreach($etapas as $etapa)
@@ -55,7 +55,7 @@
                             <strong>{{ $errors->first('etapas') }}</strong>
                         </span>
                     @endif
-                </div>
+                </div>-->
                 <div id="etapas">
                 <div>
                 <button type="submit" class="btn btn-primary">Salvar</button>

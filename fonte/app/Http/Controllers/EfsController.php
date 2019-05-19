@@ -73,9 +73,9 @@ class EfsController extends Controller
                 $efs->nome = $request['nome'];
                 $efs->descricao = $request['descricao'];
                 $efs->save();
-                foreach($request['etapas'] as $etapa){
-                    
-                }
+                // foreach($request['etapas'] as $etapa){
+
+                // }
                 $msg = 'Efs cadastrado com sucesso!';
             }
             

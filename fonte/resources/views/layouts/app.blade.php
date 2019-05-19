@@ -69,7 +69,7 @@
                                     <a class="dropdown-item"  href="{{ route('area') }}">Área</a>
                                     <a class="dropdown-item"  href="{{ route('processo') }}">Processo</a>
                                     <a class="dropdown-item"  href="{{ route('etapa') }}">Area/Etapa</a>
-                                    <a class="dropdown-item"  href="{{ route('efs') }}">EFS (imcompleto)</a>
+                                    <a class="dropdown-item"  href="{{ route('efs') }}">EFS</a>
                                     <a class="dropdown-item"  href="{{ route('register') }}">Etapa/EFS</a>
                                 </div>
                             </li>
