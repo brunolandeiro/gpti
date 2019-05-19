@@ -5,23 +5,23 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="row justify-content-center">
-                <div class="col-md-10"><h2>Area</h2></div>
-                <div class="col-md-2"><a  href="{{route('area', ['id' => 'novo'])}}" class="btn btn-primary">Novo</a></div>
+                <div class="col-md-10"><h2>Efs</h2></div>
+                <div class="col-md-2"><a  href="{{route('efs', ['id' => 'novo'])}}" class="btn btn-primary">Novo</a></div>
             </div>
             <hr>
             @if($showForm)
             <div class="card">
-            <div class="card-header">Formulário de Area</div>
+            <div class="card-header">Formulário de Efs</div>
             <div class="card-body">
-            <form action="{{route('area_cadastrar')}}" method="post">
+            <form action="{{route('efs_cadastrar')}}" method="post">
                 {{ csrf_field() }}
-                <input type="hidden" id="cod_area_update" name="cod_area_update" value="{{ isset($selecionado->cod_area) ? $selecionado->cod_area : '' }}">
+                <input type="hidden" id="cod_efs_update" name="cod_efs_update" value="{{ isset($selecionado->cod_efs) ? $selecionado->cod_efs : '' }}">
                 <div class="form-group">
-                    <label for="cod_area">Código:</label>
-                    <input type="text" class="form-control{{ $errors->has('cod_area') ? ' is-invalid' : '' }}" id="cod_area" placeholder="Entre com o cod_area" name="cod_area" value="{{ isset($selecionado->cod_area) ? $selecionado->cod_area : old('cod_area') }}" required>
-                    @if ($errors->has('cod_area'))
+                    <label for="cod_efs">Código:</label>
+                    <input type="text" class="form-control{{ $errors->has('cod_efs') ? ' is-invalid' : '' }}" id="cod_efs" placeholder="Entre com o cod_efs" name="cod_efs" value="{{ isset($selecionado->cod_efs) ? $selecionado->cod_efs : old('cod_efs') }}" required>
+                    @if ($errors->has('cod_efs'))
                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('cod_area') }}</strong>
+                            <strong>{{ $errors->first('cod_efs') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -43,8 +43,23 @@
                         </span>
                     @endif
                 </div>
+                <div class="form-group">
+                    <label for="etapas">Etapa:</label>
+                    <select class="form-control" multiple="multiple" name="etapas[]" id="etapas">
+                        @foreach($etapas as $etapa)
+                            <option value="{{$etapa->cod_etapa}}" >{{$etapa->nome}}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('etapas'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('etapas') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div id="etapas">
+                <div>
                 <button type="submit" class="btn btn-primary">Salvar</button>
-                <a href="{{route('area')}}" class="btn btn-default">Fechar</a>
+                <a href="{{route('efs')}}" class="btn btn-default">Fechar</a>
             </form>
             </div>
             </div>
@@ -61,24 +76,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($areas as $area)
+                    @foreach($efss as $efs)
                     <tr>
-                        <td>{{ $area->cod_area }}</td>
-                        <td>{{ $area->nome }}</td>
-                        <td>{{ $area->descricao }}</td>
+                        <td>{{ $efs->cod_efs }}</td>
+                        <td>{{ $efs->nome }}</td>
+                        <td>{{ $efs->descricao }}</td>
                         <td>
                         <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-default" data-toggle="modal" 
-                                data-target="#{{$area->cod_area}}">Ver Etapas
+                                data-target="#{{$efs->cod_efs}}">Ver Etapas
                             </button>
                             <!-- The Modal -->
-                            <div class="modal fade" id="{{$area->cod_area}}">
+                            <div class="modal fade" id="{{$efs->cod_efs}}">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Etapas - {{$area->nome}}</h4>
+                                        <h4 class="modal-title">Etapas - {{$efs->nome}}</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
 
@@ -95,7 +110,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($area->etapas as $etapa)
+                                            @foreach($efs->etapas as $etapa)
                                             <tr>
                                                 <td>{{$etapa->cod_etapa}}</td>
                                                 <td>{{$etapa->cod_proc}}</td>
@@ -116,8 +131,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{route('area', ['id' => $area->cod_area])}}" class="btn btn-success">Editar</a>
-                            <a href="{{route('delete', ['id' => $area->cod_area])}}" class="btn btn-danger">Deletar</a>
+                            <a href="{{route('efs', ['id' => $efs->cod_efs])}}" class="btn btn-success">Editar</a>
+                            <a href="{{route('delete', ['id' => $efs->cod_efs])}}" class="btn btn-danger">Deletar</a>
                         </td>
                     </tr>
                     @endforeach
@@ -126,11 +141,16 @@
             </div>
             <br>
             <div class="row justify-content-center">
-                <div>{{ $areas->links() }}</div>  
+                <div>{{ $efss->links() }}</div>  
             </div>
     </div>
     <br>
 </div>
 
 
+<script>
+$('#etapa').onchange(function(){
+    console.log($('#etapa'));
+})
+<script>
 @endsection

@@ -37,13 +37,13 @@ class ProcessoController extends Controller
     public function cadastrar(Request $request){
         if($request['cod_proc_update']){
             $validator = Validator::make($request->all(), [
-                'cod_proc' => 'required|max:2',
+                'cod_proc' => 'required|max:3',
                 'nome' => 'required|max:30',
                 'descricao' => 'required|max:100',
             ]);
         }else{
             $validator = Validator::make($request->all(), [
-                'cod_proc' => 'required|unique:processo|max:2',
+                'cod_proc' => 'required|unique:processo|max:3',
                 'nome' => 'required|max:30',
                 'descricao' => 'required|max:100',
             ]);

@@ -11,4 +11,9 @@ class Efs extends Model
     protected $fillable = [
         'nome','descricao'
     ];
+
+    public function etapas()
+    {
+        return $this->belongsToMany('App\Etapa', 'efs_etapa', 'cod_efs', 'cod_etapa');
+    }
 }

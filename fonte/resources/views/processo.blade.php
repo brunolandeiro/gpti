@@ -84,7 +84,6 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        @foreach($processo->etapas as $etapa)
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
@@ -96,14 +95,17 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($processo->etapas as $etapa)
+                                            <tr>
                                                 <td>{{$etapa->cod_etapa}}</td>
                                                 <td>{{$etapa->cod_proc}}</td>
                                                 <td>{{$etapa->cod_area}}</td>
                                                 <td>{{$etapa->nome}}</td>
                                                 <td>{{$etapa->descricao}}</td>
+                                            </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
-                                        @endforeach
                                     </div>
 
                                     <!-- Modal footer -->

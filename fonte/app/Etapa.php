@@ -11,4 +11,14 @@ class Etapa extends Model
     protected $fillable = [
         'cod_proc','cod_area','nome','descricao'
     ];
+
+    public function area()
+    {
+        return $this->belongsTo('App\Area', 'cod_area', 'cod_area');
+    }
+
+    public function processo()
+    {
+        return $this->belongsTo('App\Processo', 'cod_proc', 'cod_proc');
+    }
 }
