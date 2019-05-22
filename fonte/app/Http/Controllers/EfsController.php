@@ -61,21 +61,27 @@ class EfsController extends Controller
         }else{
             if($request['cod_efs_update']){
                 $efs = Efs::find($request['cod_efs_update']);
-                Efs::where('cod_efs', $request['cod_efs_update'])
-                ->update(['cod_efs' => $request['cod_efs_update'],
-                            'nome' => $request['nome'],
-                            'descricao' => $request['descricao']
-                            ]);
+                $efs->nome = $request['nome'];
+                $efs->descricao =$request['descricao'];
+                $efs->etapas()->sync($request['etapas']);
+                // Efs::where('cod_efs', $request['cod_efs_update'])
+                // ->update(['cod_efs' => $request['cod_efs_update'],
+                //             'nome' => $request['nome'],
+                //             'descricao' => $request['descricao']
+                //             ]);
+                $efs->save();
                 $msg = 'Efs alterado com sucesso!';
             } else {
                 $efs = new Efs;
                 $efs->cod_efs = $request['cod_efs'];
                 $efs->nome = $request['nome'];
                 $efs->descricao = $request['descricao'];
-                $efs->save();
-                // foreach($request['etapas'] as $etapa){
-
+                $array_etapas = [];
+                $efs->etapas()->sync($request['etapas']);
+                // foreach($request['etapas'] as $cod_etapa){
+                //     $efs->etapas()->save(Etapa::find($cod_etapa));
                 // }
+                $efs->save();
                 $msg = 'Efs cadastrado com sucesso!';
             }
             
@@ -90,6 +96,7 @@ class EfsController extends Controller
         $selecionado = Efs::find($id);
         if($selecionado){
             DB::table('efs')->where('cod_efs',$id)->delete();
+            
             $msg = ['succes','Efs deletado com sucesso!'];
         }else{
             $msg = ['erro','Efs não encontrada!'];

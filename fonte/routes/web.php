@@ -57,3 +57,11 @@ Route::group([
     Route::post('/cadastrar', 'EfsController@cadastrar')->name('efs_cadastrar');
     Route::get('/delete/efs/{id}', 'EfsController@delete')->name('delete');
 });
+
+// Route::group([
+//     'prefix' => 'efs_etapa',
+// ], function(){
+//     Route::get('/{cod_efs?}/{cod_etapa?}/{showForm?}', 'EtapaEfsController@index')->name('efs_etapa');
+//     Route::post('/cadastrar', 'EtapaEfsController@cadastrar')->name('efs_etapa_cadastrar');
+//     Route::get('/delete/{cod_efs}/{cod_etapa}', 'EtapaEfsController@delete')->name('delete');
+// });

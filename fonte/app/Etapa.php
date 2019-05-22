@@ -21,4 +21,9 @@ class Etapa extends Model
     {
         return $this->belongsTo('App\Processo', 'cod_proc', 'cod_proc');
     }
+
+    public function efss()
+    {
+        return $this->belongsToMany('App\Efs', 'efs_etapa', 'cod_etapa', 'cod_efs');
+    }
 }

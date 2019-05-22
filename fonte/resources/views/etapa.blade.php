@@ -117,7 +117,7 @@
                         <td>
                         <!-- Button to Open the Modal -->
                             <button type="button" class="btn btn-default" data-toggle="modal" 
-                                data-target="#{{$etapa->cod_etapa}}">Ver
+                                data-target="#{{$etapa->cod_etapa}}">Master Detail
                             </button>
                             <!-- The Modal -->
                             <div class="modal fade" id="{{$etapa->cod_etapa}}">
@@ -126,12 +126,13 @@
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Processo & Área - {{$etapa->nome}}</h4>
+                                        <h4 class="modal-title">Master Detail - {{$etapa->nome}}</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
+                                        <h5>Área & Processo</h5>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
@@ -161,6 +162,27 @@
                                                     <td>{{$etapa->area->descricao}}</td>
                                                 </tr>
                                                 @endif
+                                            </tbody>
+                                        </table>
+                                        <h5>Efs</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Código Etapa</th>
+                                                <th>Código Efs</th>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($etapa->efss as $efs)
+                                                <tr>
+                                                    <td>{{$etapa->cod_etapa}}</td>
+                                                    <td>{{$efs->cod_efs}}</td>
+                                                    <td>{{$efs->nome}}</td>
+                                                    <td>{{$efs->descricao}}</td>
+                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
