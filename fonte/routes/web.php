@@ -63,5 +63,5 @@ Route::group([
 ], function(){
     Route::get('/{cod_efs?}/{cod_etapa?}/{showForm?}', 'EfsEtapaController@index')->name('efs_etapa');
     Route::post('/cadastrar', 'EfsEtapaController@cadastrar')->name('efs_etapa_cadastrar');
-    // Route::get('/delete/{cod_efs}/{cod_etapa}', 'EfsEtapaController@delete')->name('delete');
+    Route::get('/delete/efs_etapa/{cod_efs}/{cod_etapa}', 'EfsEtapaController@delete')->name('efs_etapa_delete');
 });

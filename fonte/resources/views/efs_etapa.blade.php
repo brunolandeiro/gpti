@@ -88,6 +88,8 @@
                         <td>{{ $efs_etapa->cod_etapa }}</td>
                         <td>{{ $efs_etapa->tipo }}</td>
                         <td>
+                            <a href="{{route('efs_etapa', ['cod_efs' => $efs_etapa->cod_efs, 'cod_etapa' => $efs_etapa->cod_etapa] ) }}" class="btn btn-success">Editar</a>
+                            <a href="{{route('efs_etapa_delete', ['cod_efs' => $efs_etapa->cod_efs, 'cod_etapa' => $efs_etapa->cod_etapa] ) }}" class="btn btn-danger">Excluir</a>
                         </td>
                     </tr>
                     @endforeach

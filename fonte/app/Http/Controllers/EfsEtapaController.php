@@ -62,19 +62,24 @@ class EfsEtapaController extends Controller
                         ->withInput();
         }else{
             if($request['cod_efs_update'] && $request['cod_etapa_update']){
-                $efs_etapa = EfsEtapa::where('cod_efs', $cod_efs)
-                ->where('cod_etapa', $cod_etapa)
-                ->first();
-                $efs_etapa->tipo = $request['tipo'];
-                $efs->save();
+                $efs_etapa = EfsEtapa::where('cod_efs', $request['cod_efs_update'])
+                ->where('cod_etapa', $request['cod_etapa_update'])
+                ->update(['tipo' => $request['tipo']]);
                 $msg = 'Efs/Etapa alterado com sucesso!';
             } else {
-                $efs_etapa = new EfsEtapa;
-                $efs_etapa->cod_efs = $request['cod_efs'];
-                $efs_etapa->cod_etapa = $request['cod_etapa'];
-                $efs_etapa->tipo = $request['tipo'];
-                $efs_etapa->save();
-                $msg = 'Efs/Etapa cadastrado com sucesso!';
+                $efs_etapa = EfsEtapa::where('cod_efs', $request['cod_efs'])
+                ->where('cod_etapa', $request['cod_etapa'])
+                ->first();
+                if($efs_etapa){
+                    $msg = 'Já existe um Efs/Etapa com os mesmos códigos!';
+                }else{
+                    $efs_etapa = new EfsEtapa;
+                    $efs_etapa->cod_efs = $request['cod_efs'];
+                    $efs_etapa->cod_etapa = $request['cod_etapa'];
+                    $efs_etapa->tipo = $request['tipo'];
+                    $efs_etapa->save();
+                    $msg = 'Efs/Etapa cadastrado com sucesso!';
+                }
             }
             
         }
@@ -82,5 +87,24 @@ class EfsEtapaController extends Controller
         return redirect('efs_etapa')->with('success', $msg);
     }
 
-    
+    public function delete($cod_efs, $cod_etapa)
+    {
+        //DB::connection()->enableQueryLog();
+        $selecionado = EfsEtapa::where('cod_efs', $cod_efs)
+        ->where('cod_etapa', $cod_etapa)
+        ->first();
+        if($selecionado){
+            DB::table('efs_etapa')
+            ->where('cod_efs',$cod_efs)
+            ->where('cod_etapa',$cod_etapa)
+            ->delete();
+            
+            $msg = ['succes','Efs\Etapa deletado com sucesso!'];
+        }else{
+            $msg = ['erro','Efs\Etapa não encontrada!'];
+        }
+        //$queries = DB::getQueryLog();
+        //Log::info($queries);
+        return redirect('efs_etapa')->with($msg[0], $msg[1]);
+    }
 }
