@@ -68,7 +68,7 @@
                         <td>{{ $cliente->DESCRICAO }}</td>
                         <td>
                             <a href="{{route('cliente', ['id' => $cliente->CPF])}}" class="btn btn-success">Editar</a>
-                            <a href="{{route('delete', ['id' => $cliente->CPF])}}" class="btn btn-danger">Deletar</a>
+                            <a href="{{route('cliente_delete', ['id' => $cliente->CPF])}}" class="btn btn-danger">Deletar</a>
                         </td>
                     </tr>
                     @endforeach

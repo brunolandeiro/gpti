@@ -12,4 +12,12 @@ class EfsEtapa extends Model
         'tipo'
     ];
 
+    public function etapas(){
+        return $this->hasMany('App\Etapa', 'cod_etapa', 'cod_etapa');
+    }
+
+    public function efss(){
+        return $this->hasMany('App\Efs', 'cod_efs', 'cod_efs');
+    }
+
 }

@@ -81,7 +81,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"  href="{{ route('cliente') }}">Cliente</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Projeto</a>
+                                    <a class="dropdown-item"  href="{{ route('projeto') }}">Projeto</a>
                                     <a class="dropdown-item"  href="{{ route('register') }}">Projeto/Fase</a>
                                 </div>
                             </li>

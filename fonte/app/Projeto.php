@@ -11,4 +11,14 @@ class Projeto extends Model
     protected $fillable = [
         'nome','descricao','cpf'
     ];
+
+    public function cliente()
+    {
+        return $this->belongsTo('App\Cliente', 'cpf', 'cpf');
+    }
+
+    public function fases()
+    {
+        return $this->hasMany('App\Fase', 'cod_projeto', 'cod_projeto');
+    }
 }

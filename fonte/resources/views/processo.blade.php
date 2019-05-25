@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                             <a href="{{route('processo', ['id' => $processo->cod_proc])}}" class="btn btn-success">Editar</a>
-                            <a href="{{route('delete', ['id' => $processo->cod_proc])}}" class="btn btn-danger">Deletar</a>
+                            <a href="{{route('processo_delete', ['id' => $processo->cod_proc])}}" class="btn btn-danger">Deletar</a>
                         </td>
                     </tr>
                     @endforeach

@@ -23,7 +23,7 @@ Route::group([
 ], function(){
     Route::get('/{id?}/{showForm?}', 'ClienteController@index')->name('cliente');
     Route::post('/cadastrar', 'ClienteController@cadastrar')->name('cliente_cadastrar');
-    Route::get('/delete/cliente/{id}', 'ClienteController@delete')->name('delete');
+    Route::get('/delete/cliente/{id}', 'ClienteController@delete')->name('cliente_delete');
 });
 
 Route::group([
@@ -31,7 +31,7 @@ Route::group([
 ], function(){
     Route::get('/{id?}/{showForm?}', 'AreaController@index')->name('area');
     Route::post('/cadastrar', 'AreaController@cadastrar')->name('area_cadastrar');
-    Route::get('/delete/area/{id}', 'AreaController@delete')->name('delete');
+    Route::get('/delete/area/{id}', 'AreaController@delete')->name('area_delete');
 });
 
 Route::group([
@@ -39,7 +39,7 @@ Route::group([
 ], function(){
     Route::get('/{id?}/{showForm?}', 'ProcessoController@index')->name('processo');
     Route::post('/cadastrar', 'ProcessoController@cadastrar')->name('processo_cadastrar');
-    Route::get('/delete/processo/{id}', 'ProcessoController@delete')->name('delete');
+    Route::get('/delete/processo/{id}', 'ProcessoController@delete')->name('processo_delete');
 });
 
 Route::group([
@@ -47,7 +47,7 @@ Route::group([
 ], function(){
     Route::get('/{id?}/{showForm?}', 'EtapaController@index')->name('etapa');
     Route::post('/cadastrar', 'EtapaController@cadastrar')->name('etapa_cadastrar');
-    Route::get('/delete/etapa/{id}', 'EtapaController@delete')->name('delete');
+    Route::get('/delete/etapa/{id}', 'EtapaController@delete')->name('etapa_delete');
 });
 
 Route::group([
@@ -55,7 +55,7 @@ Route::group([
 ], function(){
     Route::get('/{id?}/{showForm?}', 'EfsController@index')->name('efs');
     Route::post('/cadastrar', 'EfsController@cadastrar')->name('efs_cadastrar');
-    Route::get('/delete/efs/{id}', 'EfsController@delete')->name('delete');
+    Route::get('/delete/efs/{id}', 'EfsController@delete')->name('efs_delete');
 });
 
 Route::group([
@@ -64,4 +64,12 @@ Route::group([
     Route::get('/{cod_efs?}/{cod_etapa?}/{showForm?}', 'EfsEtapaController@index')->name('efs_etapa');
     Route::post('/cadastrar', 'EfsEtapaController@cadastrar')->name('efs_etapa_cadastrar');
     Route::get('/delete/efs_etapa/{cod_efs}/{cod_etapa}', 'EfsEtapaController@delete')->name('efs_etapa_delete');
+});
+
+Route::group([
+    'prefix' => 'projeto',
+], function(){
+    Route::get('/{id?}/{showForm?}', 'ProjetoController@index')->name('projeto');
+    Route::post('/cadastrar', 'ProjetoController@cadastrar')->name('projeto_cadastrar');
+    Route::get('/delete/projeto/{id}', 'ProjetoController@delete')->name('projeto_delete');
 });

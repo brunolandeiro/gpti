@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                             <a href="{{route('area', ['id' => $area->cod_area])}}" class="btn btn-success">Editar</a>
-                            <a href="{{route('delete', ['id' => $area->cod_area])}}" class="btn btn-danger">Deletar</a>
+                            <a href="{{route('area_delete', ['id' => $area->cod_area])}}" class="btn btn-danger">Deletar</a>
                         </td>
                     </tr>
                     @endforeach

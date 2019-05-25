@@ -11,7 +11,7 @@
             <hr>
             @if($showForm)
                 <div class="card">
-                <div class="card-header">Formulário de Etapa</div>
+                <div class="card-header">Formulário de Efs/Etapa</div>
                 <div class="card-body">
                     <form action="{{route('efs_etapa_cadastrar')}}" method="post">
                         {{ csrf_field() }}
@@ -88,6 +88,71 @@
                         <td>{{ $efs_etapa->cod_etapa }}</td>
                         <td>{{ $efs_etapa->tipo }}</td>
                         <td>
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="btn btn-default" data-toggle="modal" 
+                            data-target="#{{$efs_etapa->cod_efs}}{{$efs_etapa->cod_etapa}}">Master Detail
+                        </button>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="{{$efs_etapa->cod_efs}}{{$efs_etapa->cod_etapa}}">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Master Detail</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <h5>Etapas</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Código Etapa</th>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($efs_etapa->etapas as $etapa)
+                                            <tr>
+                                                <td>{{$etapa->cod_etapa}}</td>
+                                                <td>{{$etapa->nome}}</td>
+                                                <td>{{$etapa->descricao}}</td>
+                                            </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                        <h5>EFS</h5>
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Código EFS</th>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($efs_etapa->efss as $efs)
+                                            <tr>
+                                                <td>{{$efs->cod_efs}}</td>
+                                                <td>{{$efs->nome}}</td>
+                                                <td>{{$efs->descricao}}</td>
+                                            </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
                             <a href="{{route('efs_etapa', ['cod_efs' => $efs_etapa->cod_efs, 'cod_etapa' => $efs_etapa->cod_etapa] ) }}" class="btn btn-success">Editar</a>
                             <a href="{{route('efs_etapa_delete', ['cod_efs' => $efs_etapa->cod_efs, 'cod_etapa' => $efs_etapa->cod_etapa] ) }}" class="btn btn-danger">Excluir</a>
                         </td>
