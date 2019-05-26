@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/perfil', 'HomeController@perfil')->name('perfil');
+Route::get('/help', 'HomeController@help')->name('help');
+Route::get('/backup', 'HomeController@backup')->name('backup');
+Route::get('/auditoria', 'HomeController@auditoria')->name('auditoria');
 
 Route::group([
     'prefix' => 'cliente',
@@ -72,4 +76,21 @@ Route::group([
     Route::get('/{id?}/{showForm?}', 'ProjetoController@index')->name('projeto');
     Route::post('/cadastrar', 'ProjetoController@cadastrar')->name('projeto_cadastrar');
     Route::get('/delete/projeto/{id}', 'ProjetoController@delete')->name('projeto_delete');
+});
+
+Route::group([
+    'prefix' => 'fase',
+], function(){
+    Route::get('/{id?}/{showForm?}', 'FaseController@index')->name('fase');
+    Route::post('/cadastrar', 'FaseController@cadastrar')->name('fase_cadastrar');
+    Route::get('/delete/fase/{id}', 'FaseController@delete')->name('fase_delete');
+});
+
+Route::group([
+    'prefix' => 'relatorio',
+], function(){
+    Route::get('/area_etapa_processo', 'RelatorioController@areaEtapaProcesso')->name('area_etapa_processo');
+    Route::get('/efs_etapa', 'RelatorioController@etapaEfs')->name('ralatorio_efs_etapa');
+    Route::get('/area_etapa_processo_efs', 'RelatorioController@areaEtapaProcessoEfs')->name('area_etapa_processo_efs');
+
 });

@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -53,10 +54,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"  href="{{ route('register') }}">Cadastro de Usuário</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Cadastro de Perfil</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Auditoria</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Backup</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Help</a>
+                                    <a class="dropdown-item"  href="{{ route('perfil') }}">Cadastro de Perfil</a>
+                                    <a class="dropdown-item"  href="{{ route('auditoria') }}">Auditoria</a>
+                                    <a class="dropdown-item"  href="{{ route('backup') }}">Backup</a>
+                                    <a class="dropdown-item"  href="{{ route('help') }}">Help</a>
                                 </div>
                             </li>
                         <!--Cadastro-->
@@ -82,7 +83,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"  href="{{ route('cliente') }}">Cliente</a>
                                     <a class="dropdown-item"  href="{{ route('projeto') }}">Projeto</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Projeto/Fase</a>
+                                    <a class="dropdown-item"  href="{{ route('fase') }}">Projeto/Fase</a>
                                 </div>
                             </li>
                         <!--Relatório-->
@@ -92,9 +93,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Área/Etapa/Projetos</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Etapa/EFS</a>
-                                    <a class="dropdown-item"  href="{{ route('register') }}">Área/Etapa/Processo/EFS</a>
+                                    <a class="dropdown-item"  href="{{ route('area_etapa_processo') }}">Área/Etapa/Processo</a>
+                                    <a class="dropdown-item"  href="{{ route('ralatorio_efs_etapa') }}">Etapa/EFS</a>
+                                    <a class="dropdown-item"  href="{{ route('area_etapa_processo_efs') }}">Área/Etapa/Processo/EFS</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

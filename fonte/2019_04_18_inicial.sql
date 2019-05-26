@@ -13,7 +13,7 @@ create table  processo
 create table  area
    (	cod_area varchar(2), 
 	nome varchar(30), 
-descricao varchar(500), 
+	descricao varchar(500), 
 	 primary key (cod_area)
    );
 
